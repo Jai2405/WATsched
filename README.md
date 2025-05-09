@@ -3,35 +3,35 @@ AI-powered class schedule generator for UW students
  
 WATsched is a university class scheduler that generates all possible **non-conflicting schedules** based on selected courses at the University of Waterloo.
 
-## 🚀 Features
+## Tech Stack
+- **Frontend:** Next.js
+- **Backend:** FastAPI
+- **Automation & Scraping:** Selenium
+- **AI Scheduling Engine:** Groq API
 
-- Input course data via dictionary format
-- Automatically considers LECs and TUTs
-- Ensures no overlapping classes on any day
-- Returns all valid full schedules (LEC + TUT if required)
-- Uses Groq API + Python backend
+## How It Works
+1. User enters course names (e.g., `CS 136`, `MATH 135`).
+2. Selenium scrapes schedule data from the University of Waterloo website.
+3. The backend sends this data to the Groq API with a custom prompt to generate valid class schedules.
+4. The frontend displays all possible non-overlapping schedule combinations.
 
-## 🧠 How It Works
 
-1. You input a dictionary of courses with available sections (LECs/TUTs).
-2. The system generates all valid schedule combinations using a prompt sent to Groq.
-3. The output is a JSON list of all full, non-conflicting schedules.
+## ⚙️ Setup Instructions
 
-## 🛠️ Tech Stack
+```bash
+# 1. Clone the repo
+git clone https://github.com/JAI2405/WATsched.git
+cd WATsched
 
-- Python (Flask backend)
-- Groq API (Generative AI scheduling)
-- HTML/CSS/JS (for frontend)
+# 2. Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-## 📦 Example Input Format
+# 3. Install dependencies
+pip install -r requirements.txt
 
-```json
-{
-  "CS 246": [
-    { "section": "LEC 001", "time": "11:30-12:50", "days": ["M", "W", "F"] },
-    { "section": "TUT 102", "time": "14:30-15:20", "days": ["F"] }
-  ],
-  "MATH 239": [
-    { "section": "LEC 001", "time": "13:00-14:20", "days": ["T", "Th"] }
-  ]
-}
+# 4. Create a .env file in the root with:
+# GROQ_API_KEY=your_api_key_here
+
+# 5. Run the app
+python app.py
