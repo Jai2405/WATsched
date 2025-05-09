@@ -14,24 +14,3 @@ WATsched is a university class scheduler that generates all possible **non-confl
 2. Selenium scrapes schedule data from the University of Waterloo website.
 3. The backend sends this data to the Groq API with a custom prompt to generate valid class schedules.
 4. The frontend displays all possible non-overlapping schedule combinations.
-
-
-## ⚙️ Setup Instructions
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/JAI2405/WATsched.git
-cd WATsched
-
-# 2. Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Create a .env file in the root with:
-# GROQ_API_KEY=your_api_key_here
-
-# 5. Run the app
-python app.py
